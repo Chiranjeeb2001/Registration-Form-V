@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>User Registration Form</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <nav class="page-navbar">
+        Navbar
+      </nav>
+      <div class="page-body">
+        <div class="sidebar"> 
+            <a href="#">Home</a>
+          
+        </div>
+        <div class="content">
+          <form class="formm" id="registrationForm">
+        <h1>User Registration*</h1>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <div class="password-container">
+            <input type="password" id="password" name="password" required>
+            <span class="show-password" onclick="togglePassword('password')">👁️</span>
+        </div>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <div class="password-container">
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <span class="show-password" onclick="togglePassword('confirmPassword')">👁️</span>
+        </div>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label>Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label>
+            <input type="checkbox" id="terms" name="terms" required>
+            I agree to the Terms and Conditions
+        </label>
+
+        <button type="button" onclick="validateForm()">Register</button>
+
+        <p id="error" class="error-message"></p>
+
+        <footer>
+            Already have an account? <a href="#">Login here</a>.
+        </footer>
+    </form>
+
+    <script>
+        function togglePassword(inputId) {
+            var x = document.getElementById(inputId);
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                document.getElementById("error").innerText = "Passwords do not match!";
+            } else {
+                document.getElementById("error").innerText = "";
+                // Additional validation and form submission logic can be added here
+                alert("Registration successful!");
+            }
+        }
+    </script>
+        </div>
+      </div>
+      <div class="page-footer">
+        Footer
+      </div> 
+    </div>
+  </body>
+</html>
